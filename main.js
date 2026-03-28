@@ -4,11 +4,12 @@ const app = express();
 
 app.use(express.json());
 
-const courses = require("./course.route");
-const students = require("./student.route");
-app.use("/courses", courses);
-app.use("/students", students);
-
+const userRoute = require("./user.route");
+const productRoute = require("./product.route");
+const cartRoute = require("./cart.route");
+app.use("/users", userRoute);
+app.use("/products", productRoute);
+app.use("/cart", cartRoute);
 app.get("/", (req, res) => {
   res.send("<h1>Welcome to the Student & Course Portal API!</h1>");
 });
